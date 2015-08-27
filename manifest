@@ -22,7 +22,8 @@
 __package fail2ban
 
 # be sure it is running
-require="__package/fail2ban" __process /usr/bin/fail2ban-server --state present
+require="__package/fail2ban" __process fail2ban --state present \
+    --start "/usr/bin/fail2ban-server"
 
 # make sure fail2ban get started after reboot
 require="__package/fail2ban" __start_on_boot fail2ban
